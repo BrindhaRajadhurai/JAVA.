@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class MagicNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        long n = scanner.nextLong();
+        
+        // Calculate the sum of digits
+        long sumOfDigits = 0;
+        long temp = n;
+        while (temp > 0) {
+            sumOfDigits += temp % 10;
+            temp /= 10;
+        }
+        
+        // Reverse the sumOfDigits
+        long reversedSum = reverseNumber(sumOfDigits);
+        
+        // Calculate the product of sumOfDigits and reversedSum
+        long product = sumOfDigits * reversedSum;
+        
+        // Check if product equals the original number n
+        if (product == n) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+        
+        scanner.close();
+    }
+    
